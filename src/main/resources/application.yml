@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: multiTenant
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    jdbc-url: jdbc:sqlserver://HARINI\\SQLEXPRESS:1433;encrypt=true;trustServerCertificate=true;databaseName=SpringDb;
+    username: SpringDb
+    password: SpringDb
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+#server:
+#  port: 8080
+#logging.level.root: DEBUG
+
+#tenants:
+#  datasources:
+#    tenant1:
+#      jdbc-url: jdbc:sqlserver://HARINI\\SQLEXPRESS:1433;encrypt=true;trustServerCertificate=true;databaseName=SpringDb;
+#      username: SpringDb
+#      password: SpringDb
+#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    tenant2:
+#      jdbc-url: jdbc:sqlserver://HARINI\\SQLEXPRESS:1433;encrypt=true;trustServerCertificate=true;databaseName=SpringDb1;
+#      username: SpringDb1
+#      password: SpringDb1
+#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+server:
+   port: 8080
+
+logging:
+  level:
+    com.demo.multiTenant: DEBUG
+
+tenants:
+  datasources:
+    tenant1:
+      jdbc-url: jdbc:sqlserver://HARINI\\SQLEXPRESS:1433;encrypt=true;trustServerCertificate=true;databaseName=SpringDb;
+      username: SpringDb
+      password: SpringDb
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    tenant2:
+      jdbc-url: jdbc:sqlserver://HARINI\\SQLEXPRESS:1433;encrypt=true;trustServerCertificate=true;databaseName=SpringDb1
+      username: SpringDb1
+      password: SpringDb1
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  defaultDataSourceProperties:
+    jdbc-url: jdbc:sqlserver://HARINI\\SQLEXPRESS:1433;encrypt=true;trustServerCertificate=true;databaseName=SpringDb
+    username: SpringDb
+    password: SpringDb
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
